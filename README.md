@@ -9,4 +9,4 @@
 * **On-Device AI Optimization:** Optimized 4 AI models (Qwen2-7B, YOLOv8, EasyOCR, Nomic-Embed) using Qualcomm AI Hub & QNN SDK, achieving a **75% reduction in inference time**.
 * **Smart Automation:** Built features for auto-summarization, intent-based reply generation, and task/deadline extraction from emails.
 * **Efficient Architecture:** Designed a Flask REST API with hash-based MySQL caching to eliminate duplicate processing and reduce Gmail API calls.
-* **Leadership:** Managed project timeline and technical collaboration for a 5-member team.
+
