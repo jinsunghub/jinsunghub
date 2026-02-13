@@ -80,10 +80,13 @@ python spec_decode_toy.py --prompt "I" --max-new-tokens 30 --k 6
 ### 1) 환경 준비
 
 ```bash
-!git clone <YOUR_REPO_URL>
-%cd speculative-decoding-lab
+!rm -rf /content/jinsunghub
+%cd /content
+!git clone <YOUR_REPO_URL> jinsunghub
+%cd /content/jinsunghub/speculative-decoding-lab
 !pip install -U pip
 !pip install -r requirements.txt
+!python spec_decode_hf.py --help
 ```
 
 ### 2) Hugging Face 로그인 (Llama 2 접근권한 필요)
@@ -95,13 +98,16 @@ login()
 
 ### 3) 실행
 
+> `unrecognized arguments: --num-assistant-tokens`가 뜨면, 오래된 파일이 실행 중인 경우가 많습니다.
+> 위처럼 `/content/jinsunghub`를 지우고 다시 clone한 뒤 실행하세요.
+
 ```bash
 !python spec_decode_hf.py \
   --target-model meta-llama/Llama-2-7b-hf \
   --draft-model TinyLlama/TinyLlama-1.1B-intermediate-step-1431k-3T \
   --prompt "Explain speculative decoding in simple Korean." \
   --max-new-tokens 128 \
-  --num-assistant-tokens 8
+  --k 8
 ```
 
 ## 핵심 개념 정리
