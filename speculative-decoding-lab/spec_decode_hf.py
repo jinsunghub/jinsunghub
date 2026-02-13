@@ -29,20 +29,23 @@ def speculative_decode_hf(
     proposed = 0
     accepted = 0
     target_calls = 0
+    new_tokens = 0
 
-    for _ in range(max_new_tokens):
-        # draft proposes k tokens greedily
+    while new_tokens < max_new_tokens:
+        # Draft proposes up to k tokens, but never beyond max_new_tokens.
         proposal = []
         draft_ctx = generated.clone()
-        for _ in range(k):
+        remaining = max_new_tokens - new_tokens
+        for _ in range(min(k, remaining)):
             d_next = next_token_greedy(draft_model, draft_ctx)
             proposal.append(d_next)
             draft_ctx = torch.cat([draft_ctx, d_next], dim=-1)
             proposed += 1
 
         # target verifies in order
-        mismatch = False
         for d_next in proposal:
+            if new_tokens >= max_new_tokens:
+                break
             t_next = next_token_greedy(target_model, generated)
             target_calls += 1
             if torch.equal(d_next, t_next):
@@ -50,11 +53,9 @@ def speculative_decode_hf(
                 accepted += 1
             else:
                 generated = torch.cat([generated, t_next], dim=-1)
-                mismatch = True
+                new_tokens += 1
                 break
-
-        if mismatch:
-            continue
+            new_tokens += 1
 
     return generated, {"proposed": proposed, "accepted": accepted, "target_calls": target_calls}
 
