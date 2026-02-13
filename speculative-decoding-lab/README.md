@@ -7,6 +7,7 @@
 - `spec_decode_toy.py`: 외부 모델 없이 동작하는 장난감(Toy) 실습 코드
 - `spec_decode_hf.py`: **Colab GPU + Llama 7B** 기준 실습 코드(베이스라인 vs speculative 비교)
 - `requirements.txt`: 필요한 패키지 목록
+- `speculative_decoding_colab.ipynb`: Colab에서 바로 실행 가능한 주피터 노트북
 
 ## 빠른 시작 (Toy)
 
@@ -70,6 +71,9 @@ python spec_decode_toy.py --prompt "I" --max-new-tokens 30 --k 6
 ```
 
 ## Colab + GPU에서 Llama 7B 실습
+
+가장 간단한 방법은 노트북 파일(`speculative_decoding_colab.ipynb`)을 Colab에서 여는 것입니다.
+
 
 > 권장: Colab 런타임을 `GPU(T4/L4/A100)`로 설정
 
