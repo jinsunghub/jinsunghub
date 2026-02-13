@@ -10,12 +10,50 @@
 
 ## 빠른 시작 (Toy)
 
+### macOS / Linux (bash, zsh)
+
 ```bash
 cd speculative-decoding-lab
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 python spec_decode_toy.py --prompt "I" --max-new-tokens 20 --k 4 --seed 7
+```
+
+### Windows PowerShell
+
+```powershell
+cd speculative-decoding-lab
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+python .\spec_decode_toy.py --prompt "I" --max-new-tokens 20 --k 4 --seed 7
+```
+
+> `source .venv/bin/activate`는 Linux/macOS 셸 명령이라 PowerShell에서는 동작하지 않습니다.
+
+### Windows cmd
+
+```bat
+cd speculative-decoding-lab
+python -m venv .venv
+.venv\Scripts\activate.bat
+pip install -r requirements.txt
+python spec_decode_toy.py --prompt "I" --max-new-tokens 20 --k 4 --seed 7
+```
+
+### PowerShell에서 실행 정책 오류가 날 때
+
+`Activate.ps1` 실행 시 정책 오류가 나면, 현재 사용자 범위로 한 번만 설정하세요.
+
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+```
+
+그 다음 다시 활성화:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
 ```
 
 ## Toy 실습 포인트
