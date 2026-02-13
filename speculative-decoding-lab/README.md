@@ -112,5 +112,6 @@ login()
 
 ## 참고
 
+- 최신 버전은 `--num-assistant-tokens`를 사용하고, 이전 방식 `--k`도 호환됩니다.
 - `spec_decode_hf.py`는 `transformers`의 `assistant_model` 기반 speculative decoding 경로를 사용합니다.
 - 모델/토크나이저 호환성에 따라 성능이나 동작이 달라질 수 있습니다.

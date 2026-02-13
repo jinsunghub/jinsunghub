@@ -96,10 +96,16 @@ def main() -> None:
     )
     parser.add_argument("--prompt", type=str, default="Write 5 practical tips for learning CUDA.")
     parser.add_argument("--max-new-tokens", type=int, default=128)
-    parser.add_argument("--num-assistant-tokens", type=int, default=8)
+    # Backward compatibility: some older docs/scripts used --k.
+    parser.add_argument("--num-assistant-tokens", type=int, default=None)
+    parser.add_argument("--k", type=int, default=None, help="Alias of --num-assistant-tokens")
     parser.add_argument("--no-4bit", action="store_true", help="Disable 4-bit quantization")
     parser.add_argument("--sample", action="store_true", help="Enable sampling")
     args = parser.parse_args()
+
+    num_assistant_tokens = args.num_assistant_tokens
+    if num_assistant_tokens is None:
+        num_assistant_tokens = args.k if args.k is not None else 8
 
     print("[1/4] Loading tokenizer from target model...")
     tokenizer = AutoTokenizer.from_pretrained(args.target_model, use_fast=True)
@@ -129,13 +135,14 @@ def main() -> None:
         tokenizer,
         args.prompt,
         args.max_new_tokens,
-        args.num_assistant_tokens,
+        num_assistant_tokens,
         do_sample=args.sample,
     )
 
     speedup = baseline_time / spec_time if spec_time > 0 else 0.0
 
     print("\n=== Result ===")
+    print(f"assistant tokens:  {num_assistant_tokens}")
     print(f"baseline time:    {baseline_time:.2f}s")
     print(f"speculative time: {spec_time:.2f}s")
     print(f"speedup:          {speedup:.2f}x")
