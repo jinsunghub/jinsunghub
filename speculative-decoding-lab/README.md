@@ -106,7 +106,7 @@ login()
 > `unrecognized arguments: --num-assistant-tokens`가 뜨면, 오래된 파일이 실행 중인 경우가 많습니다.
 > 위처럼 `/content/jinsunghub`를 지우고 다시 clone한 뒤 실행하세요.
 
-> 오래 걸리거나 멈춘 것처럼 보이면 `--skip-baseline`과 더 작은 `--max-new-tokens`(예: 32~64)를 사용하세요.
+> 오래 걸리거나 멈춘 것처럼 보이면 더 작은 `--max-new-tokens`(예: 32~64)를 사용하세요.
 
 ```bash
 !python spec_decode_hf.py \
@@ -114,10 +114,28 @@ login()
   --draft-model Qwen/Qwen2.5-0.5B-Instruct \
   --prompt "Explain speculative decoding in simple Korean." \
   --max-new-tokens 64 \
-  --k 8 \
-  --skip-baseline
+  --k 8
 ```
 
+
+
+### (선택) `--skip-baseline` 지원 버전에서 더 빠르게 돌리기
+
+아래가 `True`면 `--skip-baseline`을 붙여 speculative만 실행할 수 있습니다.
+
+```bash
+!python - <<'PY'
+import subprocess
+help_text = subprocess.check_output(["python", "spec_decode_hf.py", "--help"], text=True)
+print("--skip-baseline" in help_text)
+PY
+```
+
+`True`일 때 실행 예시:
+
+```bash
+!python spec_decode_hf.py --target-model Qwen/Qwen2.5-7B-Instruct --draft-model Qwen/Qwen2.5-0.5B-Instruct --prompt "Explain speculative decoding in simple Korean." --max-new-tokens 64 --k 8 --skip-baseline
+```
 
 ### (선택) Llama 2를 꼭 쓰고 싶다면
 
@@ -133,8 +151,7 @@ login()
   --draft-model TinyLlama/TinyLlama-1.1B-intermediate-step-1431k-3T \
   --prompt "Explain speculative decoding in simple Korean." \
   --max-new-tokens 64 \
-  --k 8 \
-  --skip-baseline
+  --k 8
 ```
 
 ## 핵심 개념 정리
