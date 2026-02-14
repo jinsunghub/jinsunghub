@@ -17,6 +17,9 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
 
+SCRIPT_VERSION = "2026-02-14-builtin-assistant-v2"
+
+
 def load_model(model_name: str, use_4bit: bool, device_map: str = "auto"):
     if use_4bit:
         bnb_config = BitsAndBytesConfig(
@@ -96,13 +99,16 @@ def main() -> None:
         default="Qwen/Qwen2.5-0.5B-Instruct",
     )
     parser.add_argument("--prompt", type=str, default="Write 5 practical tips for learning CUDA.")
-    parser.add_argument("--max-new-tokens", type=int, default=128)
+    parser.add_argument("--max-new-tokens", type=int, default=64)
     # Backward compatibility: some older docs/scripts used --k.
     parser.add_argument("--num-assistant-tokens", type=int, default=None)
     parser.add_argument("--k", type=int, default=None, help="Alias of --num-assistant-tokens")
     parser.add_argument("--no-4bit", action="store_true", help="Disable 4-bit quantization")
     parser.add_argument("--sample", action="store_true", help="Enable sampling")
+    parser.add_argument("--skip-baseline", action="store_true", help="Run speculative only (faster)")
     args = parser.parse_args()
+
+    print(f"[info] spec_decode_hf.py version: {SCRIPT_VERSION}")
 
     num_assistant_tokens = args.num_assistant_tokens
     if num_assistant_tokens is None:

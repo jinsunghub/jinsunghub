@@ -87,6 +87,11 @@ python spec_decode_toy.py --prompt "I" --max-new-tokens 30 --k 6
 !pip install -U pip
 !pip install -r requirements.txt
 !python spec_decode_hf.py --help
+!python - <<'PY'
+from pathlib import Path
+text = Path("spec_decode_hf.py").read_text(encoding="utf-8")
+print("VERSION_OK" if "builtin-assistant-v2" in text else "OLD_SCRIPT")
+PY
 ```
 
 ### 2) Hugging Face 로그인 (선택)
@@ -101,13 +106,16 @@ login()
 > `unrecognized arguments: --num-assistant-tokens`가 뜨면, 오래된 파일이 실행 중인 경우가 많습니다.
 > 위처럼 `/content/jinsunghub`를 지우고 다시 clone한 뒤 실행하세요.
 
+> 오래 걸리거나 멈춘 것처럼 보이면 `--skip-baseline`과 더 작은 `--max-new-tokens`(예: 32~64)를 사용하세요.
+
 ```bash
 !python spec_decode_hf.py \
   --target-model Qwen/Qwen2.5-7B-Instruct \
   --draft-model Qwen/Qwen2.5-0.5B-Instruct \
   --prompt "Explain speculative decoding in simple Korean." \
-  --max-new-tokens 128 \
-  --k 8
+  --max-new-tokens 64 \
+  --k 8 \
+  --skip-baseline
 ```
 
 
@@ -124,8 +132,9 @@ login()
   --target-model meta-llama/Llama-2-7b-hf \
   --draft-model TinyLlama/TinyLlama-1.1B-intermediate-step-1431k-3T \
   --prompt "Explain speculative decoding in simple Korean." \
-  --max-new-tokens 128 \
-  --k 8
+  --max-new-tokens 64 \
+  --k 8 \
+  --skip-baseline
 ```
 
 ## 핵심 개념 정리
