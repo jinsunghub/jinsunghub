@@ -10,6 +10,7 @@ Designed for GPU usage (e.g., Google Colab T4/L4/A100).
 from __future__ import annotations
 
 import argparse
+import sys
 import time
 
 import torch
@@ -88,11 +89,11 @@ def generate_speculative(
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--target-model", type=str, default="meta-llama/Llama-2-7b-hf")
+    parser.add_argument("--target-model", type=str, default="Qwen/Qwen2.5-7B-Instruct")
     parser.add_argument(
         "--draft-model",
         type=str,
-        default="TinyLlama/TinyLlama-1.1B-intermediate-step-1431k-3T",
+        default="Qwen/Qwen2.5-0.5B-Instruct",
     )
     parser.add_argument("--prompt", type=str, default="Write 5 practical tips for learning CUDA.")
     parser.add_argument("--max-new-tokens", type=int, default=128)
@@ -107,18 +108,33 @@ def main() -> None:
     if num_assistant_tokens is None:
         num_assistant_tokens = args.k if args.k is not None else 8
 
-    print("[1/4] Loading tokenizer from target model...")
-    tokenizer = AutoTokenizer.from_pretrained(args.target_model, use_fast=True)
-    if tokenizer.pad_token is None:
-        tokenizer.pad_token = tokenizer.eos_token
+    try:
+        print("[1/4] Loading tokenizer from target model...")
+        tokenizer = AutoTokenizer.from_pretrained(args.target_model, use_fast=True)
+        if tokenizer.pad_token is None:
+            tokenizer.pad_token = tokenizer.eos_token
 
-    use_4bit = not args.no_4bit
+        use_4bit = not args.no_4bit
 
-    print(f"[2/4] Loading target model: {args.target_model}")
-    target = load_model(args.target_model, use_4bit=use_4bit)
+        print(f"[2/4] Loading target model: {args.target_model}")
+        target = load_model(args.target_model, use_4bit=use_4bit)
 
-    print(f"[3/4] Loading draft model:  {args.draft_model}")
-    draft = load_model(args.draft_model, use_4bit=use_4bit)
+        print(f"[3/4] Loading draft model:  {args.draft_model}")
+        draft = load_model(args.draft_model, use_4bit=use_4bit)
+    except Exception as e:
+        msg = str(e)
+        if "gated" in msg.lower() or "403" in msg:
+            print("\n[ERROR] 접근 제한(gated) 모델이라 로드할 수 없습니다.")
+            print("- 현재 계정에 접근 권한이 있는 모델을 쓰거나,")
+            print("- 공개 모델 조합(기본값)으로 실행하세요.")
+            print("예시:")
+            print(
+                "python spec_decode_hf.py --target-model Qwen/Qwen2.5-7B-Instruct "
+                "--draft-model Qwen/Qwen2.5-0.5B-Instruct --k 8"
+            )
+            print("\nLlama 2를 꼭 쓰려면 HF에서 meta-llama/Llama-2-7b-hf 접근 승인 후 login()이 필요합니다.")
+            sys.exit(1)
+        raise
 
     print("[4/4] Running baseline vs speculative decoding...")
     baseline_text, baseline_time = generate_baseline(

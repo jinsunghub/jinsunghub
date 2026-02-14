@@ -70,7 +70,7 @@ python spec_decode_toy.py --prompt "I" --max-new-tokens 30 --k 2
 python spec_decode_toy.py --prompt "I" --max-new-tokens 30 --k 6
 ```
 
-## Colab + GPU에서 Llama 7B 실습
+## Colab + GPU에서 7B 모델 실습 (권장: 공개 모델 Qwen 2.5 7B)
 
 가장 간단한 방법은 노트북 파일(`speculative_decoding_colab.ipynb`)을 Colab에서 여는 것입니다.
 
@@ -89,7 +89,7 @@ python spec_decode_toy.py --prompt "I" --max-new-tokens 30 --k 6
 !python spec_decode_hf.py --help
 ```
 
-### 2) Hugging Face 로그인 (Llama 2 접근권한 필요)
+### 2) Hugging Face 로그인 (선택)
 
 ```bash
 from huggingface_hub import login
@@ -100,6 +100,24 @@ login()
 
 > `unrecognized arguments: --num-assistant-tokens`가 뜨면, 오래된 파일이 실행 중인 경우가 많습니다.
 > 위처럼 `/content/jinsunghub`를 지우고 다시 clone한 뒤 실행하세요.
+
+```bash
+!python spec_decode_hf.py \
+  --target-model Qwen/Qwen2.5-7B-Instruct \
+  --draft-model Qwen/Qwen2.5-0.5B-Instruct \
+  --prompt "Explain speculative decoding in simple Korean." \
+  --max-new-tokens 128 \
+  --k 8
+```
+
+
+### (선택) Llama 2를 꼭 쓰고 싶다면
+
+`meta-llama/Llama-2-7b-hf`는 gated repo라서 접근 승인 없으면 403 오류가 납니다.
+
+1. https://huggingface.co/meta-llama/Llama-2-7b-hf 에서 접근 요청/승인
+2. Colab에서 `login()`으로 승인된 계정 토큰 로그인
+3. 아래 명령으로 실행
 
 ```bash
 !python spec_decode_hf.py \
