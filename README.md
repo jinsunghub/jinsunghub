@@ -39,3 +39,17 @@
   - **Hybrid Data Pipeline:** Implemented **RAG (Retrieval-Augmented Generation)** using ChromaDB (Vector) and SQLite (Relational) to minimize hallucinations and ensure accurate product data retrieval.
   - **Async Processing:** Developed an asynchronous data collector integrating **Amazon PA-API** to gather real-time global ranking insights without blocking user interactions.
 - **GitHub:** [https://github.com/terrapin888/amore_ai_agent]
+
+<br>
+
+## Project 4. Heterogeneous Speculative Decoding
+> **LLM Systems Research for On-Device and Heterogeneous Inference**
+
+**"Exploring adaptive speculative decoding across heterogeneous compute environments."**
+
+- **Tech Stack:** `Python`, `PyTorch`, `Transformers`, `PowerShell`
+- **Key Achievements:**
+  - **Speculative Decoding Baseline:** Implemented a modular **draft-verifier speculative decoding** pipeline with tokenizer compatibility checks and greedy verification logic for controlled experimentation.
+  - **Adaptive Scheduling Policy:** Designed an **acceptance-rate-driven adaptive k policy** to dynamically tune speculative length based on verifier feedback across decoding rounds.
+  - **Heterogeneous Experiment Framework:** Built a lightweight research framework for comparing **CPU/GPU placement**, latency breakdowns, token acceptance metrics, and threshold sweep configurations.
+- **GitHub:** [https://github.com/jinsunghub/heterogeneous-speculative-decoding]
