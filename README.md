@@ -1,16 +1,17 @@
-#  Engineering Portfolio: System Optimization & AI Agents
+#  Engineering Portfolio: On-Device AI, System Optimization & AI Agents
 
 ##  Project 1. E.M.Pilot - On-Device AI Email Client
 > **1st Place Winner (Grand Prize)** @ Qualcomm Edge AI Developer Hackathon (2025)
 
 **"Maximizing NPU efficiency for privacy-focused AI on the edge."**
 
-- **Tech Stack:** `Python`, `Flask`, `Qualcomm QNN SDK`, `Qualcomm AI Hub`, `MySQL`
+- **Frontend / Desktop App:** [`jinsunghub/e.m.pilot`](https://github.com/jinsunghub/e.m.pilot)
+- **Backend / API Server:** [`rkddlsxo/MailPilot_back`](https://github.com/rkddlsxo/MailPilot_back)
+- **Tech Stack:** `Tauri`, `React`, `Vite`, `Python`, `Flask`, `MySQL`, `Qualcomm QNN SDK`, `Qualcomm AI Hub`
 - **Key Achievements:**
   - **On-Device Optimization:** Quantized and optimized 4 AI models (Qwen2-7B, YOLOv8, EasyOCR, Nomic-Embed) for **Snapdragon X Elite NPU**, achieving a **~75% reduction** in inference latency.
-  - **Smart Automation:** Implemented strictly local AI features for auto-summarization, intent-based reply generation, and task extraction without cloud dependency.
-  - **Efficient Architecture:** Designed a Flask REST API with hash-based MySQL caching to eliminate duplicate processing and minimize API overhead.
-- **GitHub:** [https://github.com/jinsunghub/e.m.pilot]
+  - **Smart Automation:** Implemented local AI features for auto-summarization, intent-based reply generation, attachment analysis, and task extraction.
+  - **Frontend/Backend Integration:** Built the desktop frontend in my repository and connected it with the team backend API server for Gmail, AI model, and database workflows.
 
 <br>
 
