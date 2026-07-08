@@ -1,4 +1,4 @@
-#  Engineering Portfolio: On-Device AI, System Optimization & AI Agents
+#  Engineering Portfolio: On-Device AI, System Optimization, AI Agents & NLP
 
 ##  Project 1. E.M.Pilot - On-Device AI Email Client
 > **1st Place Winner (Grand Prize)** @ Qualcomm Edge AI Developer Hackathon (2025)
@@ -25,7 +25,7 @@
   - **GPU Memory Optimization (CUDA):** Implemented **Shared Memory Tiling** for GEMM and utilized **Constant Memory** for Convolution kernels. Solved global memory bottlenecks, achieving **~1.4x speedup** compared to naive implementations. 
   - **CPU Parallelization (OpenMP):** Optimized **Softmax Regression** inference by analyzing scheduling policies. Applied **Dynamic Scheduling** to resolve load imbalance issues, resulting in **1.78x speedup**.
   - **System Profiling:** Conducted granular analysis of **L1/L2/LLC cache latencies** and **NUMA** remote memory access penalties using Google Multichase to identify hardware bottlenecks.
-- **GitHub:** [https://github.com/jinsunghub/HPC-System-Optimization]
+- **GitHub:** [jinsunghub/HPC-System-Optimization](https://github.com/jinsunghub/HPC-System-Optimization)
 
 <br>
 
@@ -39,4 +39,18 @@
   - **Agentic Architecture:** Designed a scalable **FastAPI** backend integrated with **LangChain**, featuring an autonomous decision-making loop with 9 custom tools.
   - **Hybrid Data Pipeline:** Implemented **RAG (Retrieval-Augmented Generation)** using ChromaDB (Vector) and SQLite (Relational) to minimize hallucinations and ensure accurate product data retrieval.
   - **Async Processing:** Developed an asynchronous data collector integrating **Amazon PA-API** to gather real-time global ranking insights without blocking user interactions.
-- **GitHub:** [https://github.com/terrapin888/amore_ai_agent]
+- **GitHub:** [terrapin888/amore_ai_agent](https://github.com/terrapin888/amore_ai_agent)
+
+<br>
+
+## Project 4. NLP Bootcamp Practice
+> **Tokenizer, Sequence Modeling & NLP Evaluation Practice**
+
+**"Building NLP fundamentals from tokenization to sequence-to-sequence modeling."**
+
+- **Tech Stack:** `Python`, `PyTorch`, `SentencePiece`, `Hugging Face Tokenizers`, `Jupyter Notebook`
+- **Key Achievements:**
+  - **Tokenizer Experiments:** Trained and compared subword tokenizers, analyzed vocabulary size, token frequency, unknown-token behavior, and tokenizer speed.
+  - **Sequence Modeling:** Implemented PyTorch Dataset/DataLoader pipelines, RNN-based sentiment classification, WMT14 Seq2Seq translation, and Bahdanau Attention.
+  - **Evaluation & Documentation:** Compared model outputs using BLEU, token accuracy, precision/recall, and confusion matrix, then organized the practice notebooks and experiment notes for review.
+- **GitHub:** [jinsunghub/nlp-bootcamp](https://github.com/jinsunghub/nlp-bootcamp)
