@@ -43,7 +43,7 @@
 
 <br>
 
-## Project 4. 멋쟁이사자처럼 AI/NLP Bootcamp Practice
+## Project 4. 멋쟁이사자처럼 AI/NLP Bootcamp 
 > **LIKELION AI/NLP Bootcamp (2026.06 - 2026.09)**
 
 **"Building NLP fundamentals from tokenization to sequence-to-sequence modeling."**
