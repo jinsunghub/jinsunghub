@@ -43,11 +43,13 @@
 
 <br>
 
-## Project 4. NLP Bootcamp Practice
-> **Tokenizer, Sequence Modeling & NLP Evaluation Practice**
+## Project 4. 멋쟁이사자처럼 AI/NLP Bootcamp Practice
+> **LIKELION AI/NLP Bootcamp (2026.06 - 2026.09)**
 
 **"Building NLP fundamentals from tokenization to sequence-to-sequence modeling."**
 
+- **Program:** 멋쟁이사자처럼 AI/NLP Bootcamp
+- **Period:** `2026.06 - 2026.09`
 - **Tech Stack:** `Python`, `PyTorch`, `SentencePiece`, `Hugging Face Tokenizers`, `Jupyter Notebook`
 - **Key Achievements:**
   - **Tokenizer Experiments:** Trained and compared subword tokenizers, analyzed vocabulary size, token frequency, unknown-token behavior, and tokenizer speed.
