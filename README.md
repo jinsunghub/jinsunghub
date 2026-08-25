@@ -70,4 +70,4 @@
   - **Claim Verification Pipeline:** Built a workflow to connect numeric claims extracted from news articles with official KOSIS statistical tables and compare them against real values.
   - **Statistical Table Mapping:** Indexed and analyzed **107,138 KOSIS statistical tables**, then narrowed **6,404 KOSIS-candidate claims** from 20,486 sentence-level news records.
   - **Evaluation Assets:** Created gold/holdout evaluation datasets and documented strict criteria for separating verifiable claims from unsupported, forecast-based, or mismatched statistical claims.
-- **GitHub:** [rnwjdgus03/NLP_05-Team-Project-3](https://github.com/rnwjdgus03/NLP_05-Team-Project-3)
+- **GitHub:** [jinsunghub/AI-News-Fact-Verification-System](https://github.com/jinsunghub/AI-News-Fact-Verification-System)
