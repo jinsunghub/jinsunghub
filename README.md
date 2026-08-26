@@ -1,73 +1,81 @@
-#  Engineering Portfolio: On-Device AI, System Optimization, AI Agents & NLP
+# Kim Jinsung
 
-##  Project 1. E.M.Pilot - On-Device AI Email Client
-> **1st Place Winner (Grand Prize)** @ Qualcomm Edge AI Developer Hackathon (2025)
+### Applied AI & Systems Engineer
 
-**"Maximizing NPU efficiency for privacy-focused AI on the edge."**
+I build production-oriented AI systems across **on-device inference, retrieval and verification pipelines, backend services, and performance optimization**. My work focuses on turning model capabilities into measurable, reproducible software—from NPU/GPU acceleration to official-data-grounded AI services.
 
-- **Frontend / Desktop App:** [`jinsunghub/e.m.pilot`](https://github.com/jinsunghub/e.m.pilot)
-- **Backend / API Server:** [`rkddlsxo/MailPilot_back`](https://github.com/rkddlsxo/MailPilot_back)
-- **Tech Stack:** `Tauri`, `React`, `Vite`, `Python`, `Flask`, `MySQL`, `Qualcomm QNN SDK`, `Qualcomm AI Hub`
-- **Key Achievements:**
-  - **On-Device Optimization:** Quantized and optimized 4 AI models (Qwen2-7B, YOLOv8, EasyOCR, Nomic-Embed) for **Snapdragon X Elite NPU**, achieving a **~75% reduction** in inference latency.
-  - **Smart Automation:** Implemented local AI features for auto-summarization, intent-based reply generation, attachment analysis, and task extraction.
-  - **Frontend/Backend Integration:** Built the desktop frontend in my repository and connected it with the team backend API server for Gmail, AI model, and database workflows.
+## Engineering Focus
 
-<br>
+- **Applied AI systems:** RAG, agentic workflows, semantic retrieval, model serving, and evaluation
+- **Systems performance:** CUDA, OpenMP, memory hierarchy analysis, quantization, and on-device inference
+- **Reliable AI delivery:** backend APIs, structured metadata, blind/holdout evaluation, and conservative failure handling
 
-## Project 2. High-Performance Computing & Kernel Optimization
-> **System Software & Parallel Computing Research (Individual Project)**
+## Selected Work
 
-**"Breaking the Memory Wall: Optimization of Matrix Operations and AI Inference."**
+### E.M.Pilot — On-Device AI Email Client
+**Grand Prize, Qualcomm Edge AI Developer Hackathon 2025**
 
-- **Tech Stack:** `C++`, `CUDA`, `OpenMP`, `Linux`, `Google Multichase`
-- **Key Achievements:**
-  - **GPU Memory Optimization (CUDA):** Implemented **Shared Memory Tiling** for GEMM and utilized **Constant Memory** for Convolution kernels. Solved global memory bottlenecks, achieving **~1.4x speedup** compared to naive implementations. 
-  - **CPU Parallelization (OpenMP):** Optimized **Softmax Regression** inference by analyzing scheduling policies. Applied **Dynamic Scheduling** to resolve load imbalance issues, resulting in **1.78x speedup**.
-  - **System Profiling:** Conducted granular analysis of **L1/L2/LLC cache latencies** and **NUMA** remote memory access penalties using Google Multichase to identify hardware bottlenecks.
-- **GitHub:** [jinsunghub/HPC-System-Optimization](https://github.com/jinsunghub/HPC-System-Optimization)
+Privacy-focused desktop email client that runs summarization, reply generation, OCR, attachment analysis, and task extraction on Snapdragon X Elite devices.
 
-<br>
+- Quantized and optimized Qwen2-7B, YOLOv8, EasyOCR, and Nomic Embed for the Qualcomm NPU
+- Reduced inference latency by approximately **75%**
+- Built the Tauri/React desktop client and integrated Gmail, model, and backend workflows
+- **Stack:** Python, Tauri, React, Vite, Flask, MySQL, Qualcomm QNN SDK, Qualcomm AI Hub
+- **Repository:** [jinsunghub/e.m.pilot](https://github.com/jinsunghub/e.m.pilot)
 
-## Project 3. LANEIGE Ranking Insight Agent
-> **Amorepacific AI Innovation Challenge 2026**
+---
 
-**"Autonomous Agentic Workflow for Real-time Beauty Insights."**
+### AI News Fact Verification System
+**Jun 2026 – Sep 2026 · LIKELION AI/NLP team project**
 
-- **Tech Stack:** `Python`, `FastAPI`, `LangChain`, `RAG`, `ChromaDB`, `Amazon PA-API`
-- **Key Achievements:**
-  - **Agentic Architecture:** Designed a scalable **FastAPI** backend integrated with **LangChain**, featuring an autonomous decision-making loop with 9 custom tools.
-  - **Hybrid Data Pipeline:** Implemented **RAG (Retrieval-Augmented Generation)** using ChromaDB (Vector) and SQLite (Relational) to minimize hallucinations and ensure accurate product data retrieval.
-  - **Async Processing:** Developed an asynchronous data collector integrating **Amazon PA-API** to gather real-time global ranking insights without blocking user interactions.
-- **GitHub:** [terrapin888/amore_ai_agent](https://github.com/terrapin888/amore_ai_agent)
+AI fact-verification service that extracts numeric claims from news articles, resolves them to official KOSIS table/ITEM/OBJ/period coordinates, and compares them with official values.
 
-<br>
+- Owned KOSIS Open API integration, metadata retrieval, coordinate resolution, verification pipeline design, and evaluation assets
+- Separated semantic table retrieval from exact relational coordinate lookup to reduce unsupported automatic judgments
+- Indexed **107,138 KOSIS tables** and built PostgreSQL/SQLite-backed metadata and API-cache workflows
+- Evaluated development, table-disjoint blind, and locked URL service scenarios separately to avoid overstating generalization
+- Final locked URL50 service QA completed **50/50 article jobs successfully** with a conservative evidence-selection policy
+- **Stack:** Python, FastAPI, PostgreSQL, SQLite, BGE-M3, HCX, KOSIS Open API, Pandas
+- **Repository:** [jinsunghub/AI-News-Fact-Verification-System](https://github.com/jinsunghub/AI-News-Fact-Verification-System)
 
-## Project 4. 멋쟁이사자처럼 AI/NLP Bootcamp 
-> **LIKELION AI/NLP Bootcamp (2026.06 - 2026.09)**
+---
 
-**"Building NLP fundamentals from tokenization to sequence-to-sequence modeling."**
+### High-Performance Computing & Kernel Optimization
+**Independent systems research**
 
-- **Program:** 멋쟁이사자처럼 AI/NLP Bootcamp
-- **Period:** `2026.06 - 2026.09`
-- **Tech Stack:** `Python`, `PyTorch`, `SentencePiece`, `Hugging Face Tokenizers`, `Jupyter Notebook`
-- **Key Achievements:**
-  - **Tokenizer Experiments:** Trained and compared subword tokenizers, analyzed vocabulary size, token frequency, unknown-token behavior, and tokenizer speed.
-  - **Sequence Modeling:** Implemented PyTorch Dataset/DataLoader pipelines, RNN-based sentiment classification, WMT14 Seq2Seq translation, and Bahdanau Attention.
-  - **Evaluation & Documentation:** Compared model outputs using BLEU, token accuracy, precision/recall, and confusion matrix, then organized the practice notebooks and experiment notes for review.
-- **GitHub:** [jinsunghub/nlp-bootcamp](https://github.com/jinsunghub/nlp-bootcamp)
+Performance-focused implementations and profiling experiments covering GPU kernels, CPU parallelism, cache behavior, and NUMA effects.
 
-<br>
+- Applied CUDA shared-memory tiling to GEMM and constant memory to convolution kernels, achieving approximately **1.4× speedup**
+- Optimized Softmax Regression inference with OpenMP dynamic scheduling, achieving **1.78× speedup**
+- Profiled L1/L2/LLC latency and remote NUMA memory access with Google Multichase
+- **Stack:** C++, CUDA, OpenMP, Linux, Google Multichase
+- **Repository:** [jinsunghub/HPC-System-Optimization](https://github.com/jinsunghub/HPC-System-Optimization)
 
-## Project 5. AI News Fact Verification System
-> **LIKELION AI/NLP Bootcamp Team Project (2026.07)**
+---
 
-**"Verifying numeric news claims against official KOSIS statistics."**
+### LANEIGE Ranking Insight Agent
+**Amorepacific AI Innovation Challenge 2026**
 
-- **Role:** B-Team contributor for KOSIS API integration, statistical table analysis, claim-to-table mapping, and verification pipeline design
-- **Tech Stack:** `Python`, `KOSIS Open API`, `Pandas`, `TF-IDF`, `CSV/Excel Evaluation Workflow`
-- **Key Achievements:**
-  - **Claim Verification Pipeline:** Built a workflow to connect numeric claims extracted from news articles with official KOSIS statistical tables and compare them against real values.
-  - **Statistical Table Mapping:** Indexed and analyzed **107,138 KOSIS statistical tables**, then narrowed **6,404 KOSIS-candidate claims** from 20,486 sentence-level news records.
-  - **Evaluation Assets:** Created gold/holdout evaluation datasets and documented strict criteria for separating verifiable claims from unsupported, forecast-based, or mismatched statistical claims.
-- **GitHub:** [jinsunghub/AI-News-Fact-Verification-System](https://github.com/jinsunghub/AI-News-Fact-Verification-System)
+Agentic backend for collecting and analyzing global beauty-product ranking signals.
+
+- Designed a FastAPI/LangChain workflow with nine domain tools
+- Combined ChromaDB vector retrieval with relational lookup for grounded product analysis
+- Implemented asynchronous Amazon PA-API collection for non-blocking data ingestion
+- **Stack:** Python, FastAPI, LangChain, RAG, ChromaDB, SQLite, Amazon PA-API
+- **Repository:** [terrapin888/amore_ai_agent](https://github.com/terrapin888/amore_ai_agent)
+
+## Technical Toolkit
+
+| Area | Technologies |
+|---|---|
+| AI / ML | Python, PyTorch, Transformers, BGE-M3, RAG, LangChain, SentencePiece |
+| Backend / Data | FastAPI, Flask, PostgreSQL, SQLite, MySQL, REST APIs |
+| Systems | C++, CUDA, OpenMP, Linux, Qualcomm QNN SDK |
+| Client | Tauri, React, Vite |
+| Engineering | Profiling, benchmarking, blind/holdout evaluation, reproducible experiment design |
+
+## Foundations & Ongoing Development
+
+Alongside project delivery, I maintain implementation notes and experiments covering tokenizer training, RNN-based classification, Seq2Seq translation, Bahdanau attention, BLEU, and classification evaluation.
+
+- **Repository:** [jinsunghub/nlp-bootcamp](https://github.com/jinsunghub/nlp-bootcamp)
