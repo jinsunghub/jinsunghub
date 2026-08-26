@@ -12,7 +12,7 @@ I build production-oriented AI systems across **on-device inference, retrieval a
 
 ## Selected Work
 
-### E.M.Pilot — On-Device AI Email Client
+### 01. E.M.Pilot — On-Device AI Email Client
 **Grand Prize, Qualcomm Edge AI Developer Hackathon 2025**
 
 Privacy-focused desktop email client that runs summarization, reply generation, OCR, attachment analysis, and task extraction on Snapdragon X Elite devices.
@@ -25,7 +25,7 @@ Privacy-focused desktop email client that runs summarization, reply generation, 
 
 ---
 
-### AI News Fact Verification System
+### 02. AI News Fact Verification System
 **Jun 2026 – Sep 2026 · LIKELION AI/NLP team project**
 
 AI fact-verification service that extracts numeric claims from news articles, resolves them to official KOSIS table/ITEM/OBJ/period coordinates, and compares them with official values.
@@ -40,7 +40,7 @@ AI fact-verification service that extracts numeric claims from news articles, re
 
 ---
 
-### High-Performance Computing & Kernel Optimization
+### 03. High-Performance Computing & Kernel Optimization
 **Independent systems research**
 
 Performance-focused implementations and profiling experiments covering GPU kernels, CPU parallelism, cache behavior, and NUMA effects.
@@ -53,7 +53,7 @@ Performance-focused implementations and profiling experiments covering GPU kerne
 
 ---
 
-### LANEIGE Ranking Insight Agent
+### 04. LANEIGE Ranking Insight Agent
 **Amorepacific AI Innovation Challenge 2026**
 
 Agentic backend for collecting and analyzing global beauty-product ranking signals.
@@ -74,7 +74,7 @@ Agentic backend for collecting and analyzing global beauty-product ranking signa
 | Client | Tauri, React, Vite |
 | Engineering | Profiling, benchmarking, blind/holdout evaluation, reproducible experiment design |
 
-## Foundations & Ongoing Development
+## 05. Foundations & Ongoing Development
 
 Alongside project delivery, I maintain implementation notes and experiments covering tokenizer training, RNN-based classification, Seq2Seq translation, Bahdanau attention, BLEU, and classification evaluation.
 
